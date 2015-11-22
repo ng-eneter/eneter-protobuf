@@ -91,7 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Eneter.Messaging.Framework.PhoneSilverlight">
-      <HintPath>..\..\..\..\EneterMessaging650\EneterMessagingFramework\bin\Phone81\Debug\Eneter.Messaging.Framework.PhoneSilverlight.dll</HintPath>
+      <HintPath>..\..\..\EneterMessaging700\EneterMessagingFramework\bin\Phone81\Release\Eneter.Messaging.Framework.PhoneSilverlight.dll</HintPath>
     </Reference>
     <Reference Include="protobuf-net">
       <HintPath>..\..\..\..\Ondrej\Projects\Externals\ProtoBufNet\Full\wp8\protobuf-net.dll</HintPath>

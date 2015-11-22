@@ -5,16 +5,17 @@
  * Copyright © Ondrej Uzovic 2013
 */
 
-using System;
-using System.IO;
 using Eneter.Messaging.DataProcessing.Serializing;
 using Eneter.Messaging.EndPoints.Rpc;
 using Eneter.Messaging.EndPoints.TypedMessages;
+using Eneter.Messaging.MessagingSystems.Composites.MessageBus;
 using Eneter.Messaging.MessagingSystems.Composites.MonitoredMessagingComposit;
 using Eneter.Messaging.Nodes.Broker;
 using Eneter.Messaging.Nodes.ChannelWrapper;
 using ProtoBuf;
-using Eneter.Messaging.MessagingSystems.Composites.MessageBus;
+using System;
+using System.IO;
+using System.Linq;
 
 namespace Eneter.ProtoBuf
 {
@@ -34,7 +35,11 @@ namespace Eneter.ProtoBuf
             object aSerializedData;
 
             // If it is an internal Eneter type adapt it for ProtoBuf
-            if (dataToSerialize is MultiTypedMessage)
+            if (dataToSerialize is byte[][])
+            {
+                aSerializedData = SerializeArrayOfByteArray(dataToSerialize as byte[][]);
+            }
+            else if (dataToSerialize is MultiTypedMessage)
             {
                 aSerializedData = SerializeMultiTypedMessage(dataToSerialize as MultiTypedMessage);
             }
@@ -88,7 +93,11 @@ namespace Eneter.ProtoBuf
                 T aDeserializedObject;
 
                 // If it is an internal Eneter type, adapt it from the proto type.
-                if (typeof(T) == typeof(MultiTypedMessage))
+                if (typeof(T) == typeof(byte[][]))
+                {
+                    aDeserializedObject = (T)((object)DeserializeArrayOfByteArray(aBuf));
+                }
+                else if (typeof(T) == typeof(MultiTypedMessage))
                 {
                     aDeserializedObject = (T)((object)DeserializeMultiTypedMessage(aBuf));
                 }
@@ -128,6 +137,20 @@ namespace Eneter.ProtoBuf
 
                 return aDeserializedObject;
             }
+        }
+
+        private byte[] SerializeArrayOfByteArray(byte[][] data)
+        {
+            ArrayOfByteArrayProto anArrayOfByteArrayProto = new ArrayOfByteArrayProto();
+            anArrayOfByteArrayProto.Value.AddRange(data.Select(x => new ByteArrayProto() { Value = x }));
+            return SerializeProtoBuf<ArrayOfByteArrayProto>(anArrayOfByteArrayProto);
+        }
+
+        private byte[][] DeserializeArrayOfByteArray(MemoryStream data)
+        {
+            ArrayOfByteArrayProto anArrayOfByteArrayProto = Serializer.Deserialize<ArrayOfByteArrayProto>(data);
+            byte[][] anArrayOfByteArray = anArrayOfByteArrayProto.Value.Select(x => x.Value.ToArray()).ToArray();
+            return anArrayOfByteArray;
         }
 
         private byte[] SerializeMultiTypedMessage(MultiTypedMessage data)

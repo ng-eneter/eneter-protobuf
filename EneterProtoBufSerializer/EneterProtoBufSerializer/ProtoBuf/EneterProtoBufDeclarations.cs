@@ -14,6 +14,40 @@
 // Generated from: EneterProtoBufDeclarations.proto
 namespace Eneter.ProtoBuf
 {
+  [global::ProtoBuf.ProtoContract(Name=@"ByteArrayProto")]
+  public partial class ByteArrayProto : global::ProtoBuf.IExtensible
+  {
+    public ByteArrayProto() {}
+    
+    private byte[] _Value;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"Value", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public byte[] Value
+    {
+      get { return _Value; }
+      set { _Value = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::ProtoBuf.ProtoContract(Name=@"ArrayOfByteArrayProto")]
+  public partial class ArrayOfByteArrayProto : global::ProtoBuf.IExtensible
+  {
+    public ArrayOfByteArrayProto() {}
+    
+    private readonly global::System.Collections.Generic.List<ByteArrayProto> _Value = new global::System.Collections.Generic.List<ByteArrayProto>();
+    [global::ProtoBuf.ProtoMember(1, Name=@"Value", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public global::System.Collections.Generic.List<ByteArrayProto> Value
+    {
+      get { return _Value; }
+    }
+  
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
   [global::ProtoBuf.ProtoContract(Name=@"MessageBusMessageProto")]
   public partial class MessageBusMessageProto : global::ProtoBuf.IExtensible
   {

@@ -5,20 +5,20 @@
  * Copyright © Ondrej Uzovic 2013
 */
 
-using System;
-using System.Linq;
+using Eneter.Messaging.DataProcessing.Serializing;
+using Eneter.Messaging.EndPoints.Rpc;
 using Eneter.Messaging.EndPoints.TypedMessages;
+using Eneter.Messaging.MessagingSystems.Composites.MessageBus;
 using Eneter.Messaging.MessagingSystems.Composites.MonitoredMessagingComposit;
 using Eneter.Messaging.Nodes.Broker;
 using Eneter.Messaging.Nodes.ChannelWrapper;
 using Eneter.ProtoBuf;
 using NUnit.Framework;
-using Eneter.Messaging.Diagnostic;
+using System;
 using System.Diagnostics;
-using Eneter.Messaging.DataProcessing.Serializing;
+using System.Linq;
+using System.Security.Cryptography;
 using System.Threading;
-using Eneter.Messaging.EndPoints.Rpc;
-using Eneter.Messaging.MessagingSystems.Composites.MessageBus;
 
 namespace EneterProtoBufSerializer_UTests
 {
@@ -123,6 +123,37 @@ namespace EneterProtoBufSerializer_UTests
             aSrc.MessageData = new byte[] { 1, 2, 3 };
             aSerializedData = aProtoBufSerializer.Serialize<MultiTypedMessage>(aSrc);
             aResult = aProtoBufSerializer.Deserialize<MultiTypedMessage>(aSerializedData);
+            Assert.AreEqual(aSrc.TypeName, aResult.TypeName);
+            Assert.AreEqual(aSrc.MessageData, aResult.MessageData);
+        }
+
+        [Test]
+        public void SerializeDeserializeWithRSA()
+        {
+            ProtoBufSerializer anUnderlyingSerializer = new ProtoBufSerializer();
+
+            // Generate public and private keys.
+            RSACryptoServiceProvider aCryptoProvider = new RSACryptoServiceProvider();
+            RSAParameters aPublicKey = aCryptoProvider.ExportParameters(false);
+            RSAParameters aPrivateKey = aCryptoProvider.ExportParameters(true);
+
+            RsaSerializer aSerializer = new RsaSerializer(aPublicKey, aPrivateKey, 128, anUnderlyingSerializer);
+            
+
+            MultiTypedMessage aSrc = new MultiTypedMessage();
+            aSrc.TypeName = "String";
+            aSrc.MessageData = "Hello";
+
+            object aSerializedData = aSerializer.Serialize<MultiTypedMessage>(aSrc);
+
+            MultiTypedMessage aResult = aSerializer.Deserialize<MultiTypedMessage>(aSerializedData);
+            Assert.AreEqual(aSrc.TypeName, aResult.TypeName);
+            Assert.AreEqual(aSrc.MessageData, aResult.MessageData);
+
+            aSrc.TypeName = "Byte[]";
+            aSrc.MessageData = new byte[] { 1, 2, 3 };
+            aSerializedData = aSerializer.Serialize<MultiTypedMessage>(aSrc);
+            aResult = aSerializer.Deserialize<MultiTypedMessage>(aSerializedData);
             Assert.AreEqual(aSrc.TypeName, aResult.TypeName);
             Assert.AreEqual(aSrc.MessageData, aResult.MessageData);
         }

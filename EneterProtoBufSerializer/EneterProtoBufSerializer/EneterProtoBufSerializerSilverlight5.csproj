@@ -49,7 +49,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Eneter.Messaging.Framework.Silverlight">
-      <HintPath>..\..\..\..\EneterMessaging650\EneterMessagingFramework\bin\Silverlight5\Debug\Eneter.Messaging.Framework.Silverlight.dll</HintPath>
+      <HintPath>..\..\..\EneterMessaging700\EneterMessagingFramework\bin\Silverlight5\Release\Eneter.Messaging.Framework.Silverlight.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="protobuf-net">
