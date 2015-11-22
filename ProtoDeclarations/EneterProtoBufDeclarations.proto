@@ -1,3 +1,13 @@
+// Encoding used by some serializers e.g. AES serializer.
+message ByteArrayProto
+{
+    required bytes Value = 1;
+}
+message ArrayOfByteArrayProto
+{
+    repeated ByteArrayProto Value = 1;
+}
+
 // MessageBusMessage
 message MessageBusMessageProto
 {

@@ -1905,7 +1905,7 @@ public final class EneterProtoBufPrimitivesDeclarations {
    * Protobuf type {@code ByteWrapper}
    *
    * <pre>
-   * Byte
+   * Byte (this is also array of bytes)
    * </pre>
    */
   public static final class ByteWrapper extends
@@ -2135,7 +2135,7 @@ public final class EneterProtoBufPrimitivesDeclarations {
      * Protobuf type {@code ByteWrapper}
      *
      * <pre>
-     * Byte
+     * Byte (this is also array of bytes)
      * </pre>
      */
     public static final class Builder extends

@@ -23,7 +23,7 @@ message BooleanArrayWrapper
 }
 
 
-// Byte
+// Byte (this is also array of bytes)
 message ByteWrapper
 {
     required bytes Value = 1;

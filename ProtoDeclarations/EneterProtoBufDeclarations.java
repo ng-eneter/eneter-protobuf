@@ -6,6 +6,1110 @@ public final class EneterProtoBufDeclarations {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
+  public interface ByteArrayProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ByteArrayProto)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required bytes Value = 1;</code>
+     */
+    boolean hasValue();
+    /**
+     * <code>required bytes Value = 1;</code>
+     */
+    com.google.protobuf.ByteString getValue();
+  }
+  /**
+   * Protobuf type {@code ByteArrayProto}
+   *
+   * <pre>
+   * Encoding used by some serializers e.g. AES serializer.
+   * </pre>
+   */
+  public static final class ByteArrayProto extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:ByteArrayProto)
+      ByteArrayProtoOrBuilder {
+    // Use ByteArrayProto.newBuilder() to construct.
+    private ByteArrayProto(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private ByteArrayProto(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final ByteArrayProto defaultInstance;
+    public static ByteArrayProto getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public ByteArrayProto getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ByteArrayProto(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              value_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return EneterProtoBufDeclarations.internal_static_ByteArrayProto_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return EneterProtoBufDeclarations.internal_static_ByteArrayProto_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              EneterProtoBufDeclarations.ByteArrayProto.class, EneterProtoBufDeclarations.ByteArrayProto.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<ByteArrayProto> PARSER =
+        new com.google.protobuf.AbstractParser<ByteArrayProto>() {
+      public ByteArrayProto parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ByteArrayProto(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ByteArrayProto> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int VALUE_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString value_;
+    /**
+     * <code>required bytes Value = 1;</code>
+     */
+    public boolean hasValue() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required bytes Value = 1;</code>
+     */
+    public com.google.protobuf.ByteString getValue() {
+      return value_;
+    }
+
+    private void initFields() {
+      value_ = com.google.protobuf.ByteString.EMPTY;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasValue()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, value_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, value_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static EneterProtoBufDeclarations.ByteArrayProto parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static EneterProtoBufDeclarations.ByteArrayProto parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static EneterProtoBufDeclarations.ByteArrayProto parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static EneterProtoBufDeclarations.ByteArrayProto parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static EneterProtoBufDeclarations.ByteArrayProto parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static EneterProtoBufDeclarations.ByteArrayProto parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static EneterProtoBufDeclarations.ByteArrayProto parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static EneterProtoBufDeclarations.ByteArrayProto parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static EneterProtoBufDeclarations.ByteArrayProto parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static EneterProtoBufDeclarations.ByteArrayProto parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(EneterProtoBufDeclarations.ByteArrayProto prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ByteArrayProto}
+     *
+     * <pre>
+     * Encoding used by some serializers e.g. AES serializer.
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ByteArrayProto)
+        EneterProtoBufDeclarations.ByteArrayProtoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return EneterProtoBufDeclarations.internal_static_ByteArrayProto_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return EneterProtoBufDeclarations.internal_static_ByteArrayProto_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                EneterProtoBufDeclarations.ByteArrayProto.class, EneterProtoBufDeclarations.ByteArrayProto.Builder.class);
+      }
+
+      // Construct using EneterProtoBufDeclarations.ByteArrayProto.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        value_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return EneterProtoBufDeclarations.internal_static_ByteArrayProto_descriptor;
+      }
+
+      public EneterProtoBufDeclarations.ByteArrayProto getDefaultInstanceForType() {
+        return EneterProtoBufDeclarations.ByteArrayProto.getDefaultInstance();
+      }
+
+      public EneterProtoBufDeclarations.ByteArrayProto build() {
+        EneterProtoBufDeclarations.ByteArrayProto result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public EneterProtoBufDeclarations.ByteArrayProto buildPartial() {
+        EneterProtoBufDeclarations.ByteArrayProto result = new EneterProtoBufDeclarations.ByteArrayProto(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.value_ = value_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof EneterProtoBufDeclarations.ByteArrayProto) {
+          return mergeFrom((EneterProtoBufDeclarations.ByteArrayProto)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(EneterProtoBufDeclarations.ByteArrayProto other) {
+        if (other == EneterProtoBufDeclarations.ByteArrayProto.getDefaultInstance()) return this;
+        if (other.hasValue()) {
+          setValue(other.getValue());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasValue()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        EneterProtoBufDeclarations.ByteArrayProto parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (EneterProtoBufDeclarations.ByteArrayProto) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>required bytes Value = 1;</code>
+       */
+      public boolean hasValue() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required bytes Value = 1;</code>
+       */
+      public com.google.protobuf.ByteString getValue() {
+        return value_;
+      }
+      /**
+       * <code>required bytes Value = 1;</code>
+       */
+      public Builder setValue(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bytes Value = 1;</code>
+       */
+      public Builder clearValue() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        value_ = getDefaultInstance().getValue();
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:ByteArrayProto)
+    }
+
+    static {
+      defaultInstance = new ByteArrayProto(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:ByteArrayProto)
+  }
+
+  public interface ArrayOfByteArrayProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ArrayOfByteArrayProto)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .ByteArrayProto Value = 1;</code>
+     */
+    java.util.List<EneterProtoBufDeclarations.ByteArrayProto> 
+        getValueList();
+    /**
+     * <code>repeated .ByteArrayProto Value = 1;</code>
+     */
+    EneterProtoBufDeclarations.ByteArrayProto getValue(int index);
+    /**
+     * <code>repeated .ByteArrayProto Value = 1;</code>
+     */
+    int getValueCount();
+    /**
+     * <code>repeated .ByteArrayProto Value = 1;</code>
+     */
+    java.util.List<? extends EneterProtoBufDeclarations.ByteArrayProtoOrBuilder> 
+        getValueOrBuilderList();
+    /**
+     * <code>repeated .ByteArrayProto Value = 1;</code>
+     */
+    EneterProtoBufDeclarations.ByteArrayProtoOrBuilder getValueOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code ArrayOfByteArrayProto}
+   */
+  public static final class ArrayOfByteArrayProto extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:ArrayOfByteArrayProto)
+      ArrayOfByteArrayProtoOrBuilder {
+    // Use ArrayOfByteArrayProto.newBuilder() to construct.
+    private ArrayOfByteArrayProto(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private ArrayOfByteArrayProto(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final ArrayOfByteArrayProto defaultInstance;
+    public static ArrayOfByteArrayProto getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public ArrayOfByteArrayProto getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ArrayOfByteArrayProto(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                value_ = new java.util.ArrayList<EneterProtoBufDeclarations.ByteArrayProto>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              value_.add(input.readMessage(EneterProtoBufDeclarations.ByteArrayProto.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          value_ = java.util.Collections.unmodifiableList(value_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return EneterProtoBufDeclarations.internal_static_ArrayOfByteArrayProto_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return EneterProtoBufDeclarations.internal_static_ArrayOfByteArrayProto_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              EneterProtoBufDeclarations.ArrayOfByteArrayProto.class, EneterProtoBufDeclarations.ArrayOfByteArrayProto.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<ArrayOfByteArrayProto> PARSER =
+        new com.google.protobuf.AbstractParser<ArrayOfByteArrayProto>() {
+      public ArrayOfByteArrayProto parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ArrayOfByteArrayProto(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ArrayOfByteArrayProto> getParserForType() {
+      return PARSER;
+    }
+
+    public static final int VALUE_FIELD_NUMBER = 1;
+    private java.util.List<EneterProtoBufDeclarations.ByteArrayProto> value_;
+    /**
+     * <code>repeated .ByteArrayProto Value = 1;</code>
+     */
+    public java.util.List<EneterProtoBufDeclarations.ByteArrayProto> getValueList() {
+      return value_;
+    }
+    /**
+     * <code>repeated .ByteArrayProto Value = 1;</code>
+     */
+    public java.util.List<? extends EneterProtoBufDeclarations.ByteArrayProtoOrBuilder> 
+        getValueOrBuilderList() {
+      return value_;
+    }
+    /**
+     * <code>repeated .ByteArrayProto Value = 1;</code>
+     */
+    public int getValueCount() {
+      return value_.size();
+    }
+    /**
+     * <code>repeated .ByteArrayProto Value = 1;</code>
+     */
+    public EneterProtoBufDeclarations.ByteArrayProto getValue(int index) {
+      return value_.get(index);
+    }
+    /**
+     * <code>repeated .ByteArrayProto Value = 1;</code>
+     */
+    public EneterProtoBufDeclarations.ByteArrayProtoOrBuilder getValueOrBuilder(
+        int index) {
+      return value_.get(index);
+    }
+
+    private void initFields() {
+      value_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      for (int i = 0; i < getValueCount(); i++) {
+        if (!getValue(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < value_.size(); i++) {
+        output.writeMessage(1, value_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < value_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, value_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static EneterProtoBufDeclarations.ArrayOfByteArrayProto parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static EneterProtoBufDeclarations.ArrayOfByteArrayProto parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static EneterProtoBufDeclarations.ArrayOfByteArrayProto parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static EneterProtoBufDeclarations.ArrayOfByteArrayProto parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static EneterProtoBufDeclarations.ArrayOfByteArrayProto parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static EneterProtoBufDeclarations.ArrayOfByteArrayProto parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static EneterProtoBufDeclarations.ArrayOfByteArrayProto parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static EneterProtoBufDeclarations.ArrayOfByteArrayProto parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static EneterProtoBufDeclarations.ArrayOfByteArrayProto parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static EneterProtoBufDeclarations.ArrayOfByteArrayProto parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(EneterProtoBufDeclarations.ArrayOfByteArrayProto prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ArrayOfByteArrayProto}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ArrayOfByteArrayProto)
+        EneterProtoBufDeclarations.ArrayOfByteArrayProtoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return EneterProtoBufDeclarations.internal_static_ArrayOfByteArrayProto_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return EneterProtoBufDeclarations.internal_static_ArrayOfByteArrayProto_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                EneterProtoBufDeclarations.ArrayOfByteArrayProto.class, EneterProtoBufDeclarations.ArrayOfByteArrayProto.Builder.class);
+      }
+
+      // Construct using EneterProtoBufDeclarations.ArrayOfByteArrayProto.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getValueFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (valueBuilder_ == null) {
+          value_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          valueBuilder_.clear();
+        }
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return EneterProtoBufDeclarations.internal_static_ArrayOfByteArrayProto_descriptor;
+      }
+
+      public EneterProtoBufDeclarations.ArrayOfByteArrayProto getDefaultInstanceForType() {
+        return EneterProtoBufDeclarations.ArrayOfByteArrayProto.getDefaultInstance();
+      }
+
+      public EneterProtoBufDeclarations.ArrayOfByteArrayProto build() {
+        EneterProtoBufDeclarations.ArrayOfByteArrayProto result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public EneterProtoBufDeclarations.ArrayOfByteArrayProto buildPartial() {
+        EneterProtoBufDeclarations.ArrayOfByteArrayProto result = new EneterProtoBufDeclarations.ArrayOfByteArrayProto(this);
+        int from_bitField0_ = bitField0_;
+        if (valueBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            value_ = java.util.Collections.unmodifiableList(value_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.value_ = value_;
+        } else {
+          result.value_ = valueBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof EneterProtoBufDeclarations.ArrayOfByteArrayProto) {
+          return mergeFrom((EneterProtoBufDeclarations.ArrayOfByteArrayProto)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(EneterProtoBufDeclarations.ArrayOfByteArrayProto other) {
+        if (other == EneterProtoBufDeclarations.ArrayOfByteArrayProto.getDefaultInstance()) return this;
+        if (valueBuilder_ == null) {
+          if (!other.value_.isEmpty()) {
+            if (value_.isEmpty()) {
+              value_ = other.value_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureValueIsMutable();
+              value_.addAll(other.value_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.value_.isEmpty()) {
+            if (valueBuilder_.isEmpty()) {
+              valueBuilder_.dispose();
+              valueBuilder_ = null;
+              value_ = other.value_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              valueBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getValueFieldBuilder() : null;
+            } else {
+              valueBuilder_.addAllMessages(other.value_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        for (int i = 0; i < getValueCount(); i++) {
+          if (!getValue(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        EneterProtoBufDeclarations.ArrayOfByteArrayProto parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (EneterProtoBufDeclarations.ArrayOfByteArrayProto) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<EneterProtoBufDeclarations.ByteArrayProto> value_ =
+        java.util.Collections.emptyList();
+      private void ensureValueIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          value_ = new java.util.ArrayList<EneterProtoBufDeclarations.ByteArrayProto>(value_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          EneterProtoBufDeclarations.ByteArrayProto, EneterProtoBufDeclarations.ByteArrayProto.Builder, EneterProtoBufDeclarations.ByteArrayProtoOrBuilder> valueBuilder_;
+
+      /**
+       * <code>repeated .ByteArrayProto Value = 1;</code>
+       */
+      public java.util.List<EneterProtoBufDeclarations.ByteArrayProto> getValueList() {
+        if (valueBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(value_);
+        } else {
+          return valueBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .ByteArrayProto Value = 1;</code>
+       */
+      public int getValueCount() {
+        if (valueBuilder_ == null) {
+          return value_.size();
+        } else {
+          return valueBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .ByteArrayProto Value = 1;</code>
+       */
+      public EneterProtoBufDeclarations.ByteArrayProto getValue(int index) {
+        if (valueBuilder_ == null) {
+          return value_.get(index);
+        } else {
+          return valueBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .ByteArrayProto Value = 1;</code>
+       */
+      public Builder setValue(
+          int index, EneterProtoBufDeclarations.ByteArrayProto value) {
+        if (valueBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureValueIsMutable();
+          value_.set(index, value);
+          onChanged();
+        } else {
+          valueBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ByteArrayProto Value = 1;</code>
+       */
+      public Builder setValue(
+          int index, EneterProtoBufDeclarations.ByteArrayProto.Builder builderForValue) {
+        if (valueBuilder_ == null) {
+          ensureValueIsMutable();
+          value_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          valueBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ByteArrayProto Value = 1;</code>
+       */
+      public Builder addValue(EneterProtoBufDeclarations.ByteArrayProto value) {
+        if (valueBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureValueIsMutable();
+          value_.add(value);
+          onChanged();
+        } else {
+          valueBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ByteArrayProto Value = 1;</code>
+       */
+      public Builder addValue(
+          int index, EneterProtoBufDeclarations.ByteArrayProto value) {
+        if (valueBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureValueIsMutable();
+          value_.add(index, value);
+          onChanged();
+        } else {
+          valueBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ByteArrayProto Value = 1;</code>
+       */
+      public Builder addValue(
+          EneterProtoBufDeclarations.ByteArrayProto.Builder builderForValue) {
+        if (valueBuilder_ == null) {
+          ensureValueIsMutable();
+          value_.add(builderForValue.build());
+          onChanged();
+        } else {
+          valueBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ByteArrayProto Value = 1;</code>
+       */
+      public Builder addValue(
+          int index, EneterProtoBufDeclarations.ByteArrayProto.Builder builderForValue) {
+        if (valueBuilder_ == null) {
+          ensureValueIsMutable();
+          value_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          valueBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ByteArrayProto Value = 1;</code>
+       */
+      public Builder addAllValue(
+          java.lang.Iterable<? extends EneterProtoBufDeclarations.ByteArrayProto> values) {
+        if (valueBuilder_ == null) {
+          ensureValueIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, value_);
+          onChanged();
+        } else {
+          valueBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ByteArrayProto Value = 1;</code>
+       */
+      public Builder clearValue() {
+        if (valueBuilder_ == null) {
+          value_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          valueBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ByteArrayProto Value = 1;</code>
+       */
+      public Builder removeValue(int index) {
+        if (valueBuilder_ == null) {
+          ensureValueIsMutable();
+          value_.remove(index);
+          onChanged();
+        } else {
+          valueBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ByteArrayProto Value = 1;</code>
+       */
+      public EneterProtoBufDeclarations.ByteArrayProto.Builder getValueBuilder(
+          int index) {
+        return getValueFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .ByteArrayProto Value = 1;</code>
+       */
+      public EneterProtoBufDeclarations.ByteArrayProtoOrBuilder getValueOrBuilder(
+          int index) {
+        if (valueBuilder_ == null) {
+          return value_.get(index);  } else {
+          return valueBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .ByteArrayProto Value = 1;</code>
+       */
+      public java.util.List<? extends EneterProtoBufDeclarations.ByteArrayProtoOrBuilder> 
+           getValueOrBuilderList() {
+        if (valueBuilder_ != null) {
+          return valueBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(value_);
+        }
+      }
+      /**
+       * <code>repeated .ByteArrayProto Value = 1;</code>
+       */
+      public EneterProtoBufDeclarations.ByteArrayProto.Builder addValueBuilder() {
+        return getValueFieldBuilder().addBuilder(
+            EneterProtoBufDeclarations.ByteArrayProto.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .ByteArrayProto Value = 1;</code>
+       */
+      public EneterProtoBufDeclarations.ByteArrayProto.Builder addValueBuilder(
+          int index) {
+        return getValueFieldBuilder().addBuilder(
+            index, EneterProtoBufDeclarations.ByteArrayProto.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .ByteArrayProto Value = 1;</code>
+       */
+      public java.util.List<EneterProtoBufDeclarations.ByteArrayProto.Builder> 
+           getValueBuilderList() {
+        return getValueFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          EneterProtoBufDeclarations.ByteArrayProto, EneterProtoBufDeclarations.ByteArrayProto.Builder, EneterProtoBufDeclarations.ByteArrayProtoOrBuilder> 
+          getValueFieldBuilder() {
+        if (valueBuilder_ == null) {
+          valueBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              EneterProtoBufDeclarations.ByteArrayProto, EneterProtoBufDeclarations.ByteArrayProto.Builder, EneterProtoBufDeclarations.ByteArrayProtoOrBuilder>(
+                  value_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          value_ = null;
+        }
+        return valueBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:ArrayOfByteArrayProto)
+    }
+
+    static {
+      defaultInstance = new ArrayOfByteArrayProto(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:ArrayOfByteArrayProto)
+  }
+
   public interface MessageBusMessageProtoOrBuilder extends
       // @@protoc_insertion_point(interface_extends:MessageBusMessageProto)
       com.google.protobuf.MessageOrBuilder {
@@ -5901,6 +7005,16 @@ public final class EneterProtoBufDeclarations {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ByteArrayProto_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_ByteArrayProto_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ArrayOfByteArrayProto_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_ArrayOfByteArrayProto_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_MessageBusMessageProto_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -5949,25 +7063,27 @@ public final class EneterProtoBufDeclarations {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n EneterProtoBufDeclarations.proto\"e\n\026Me" +
-      "ssageBusMessageProto\022\017\n\007Request\030\001 \002(\005\022\n\n" +
-      "\002Id\030\002 \002(\t\022\026\n\016MessageDataBin\030\003 \001(\014\022\026\n\016Mes" +
-      "sageDataStr\030\004 \001(\t\"Z\n\026MultiTypedMessagePr" +
-      "oto\022\020\n\010TypeName\030\001 \002(\t\022\026\n\016MessageDataBin\030" +
-      "\002 \001(\014\022\026\n\016MessageDataStr\030\003 \001(\t\"\231\001\n\017RpcMes" +
-      "sageProto\022\n\n\002Id\030\001 \002(\005\022\014\n\004Flag\030\002 \002(\005\022\025\n\rO" +
-      "perationName\030\003 \002(\t\022\026\n\016SerializedData\030\004 \003" +
-      "(\014\022\021\n\tErrorType\030\005 \002(\t\022\024\n\014ErrorMessage\030\006 " +
-      "\002(\t\022\024\n\014ErrorDetails\030\007 \002(\t\"\037\n\016EventArgsPr",
-      "oto\022\r\n\005dummy\030\001 \002(\005\"W\n\020WrappedDataProto\022\021" +
-      "\n\tAddedData\030\001 \002(\t\022\027\n\017OriginalDataBin\030\002 \001" +
-      "(\014\022\027\n\017OriginalDataStr\030\003 \001(\t\"c\n\022BrokerMes" +
-      "sageProto\022\017\n\007Request\030\001 \002(\005\022\024\n\014MessageTyp" +
-      "es\030\002 \003(\t\022\022\n\nMessageBin\030\003 \001(\014\022\022\n\nMessageS" +
-      "tr\030\004 \001(\t\"g\n\032MonitorChannelMessageProto\022\023" +
-      "\n\013MessageType\030\001 \002(\005\022\031\n\021MessageContentBin" +
-      "\030\002 \001(\014\022\031\n\021MessageContentStr\030\003 \001(\t\"!\n\020Voi" +
-      "dMessageProto\022\r\n\005dummy\030\001 \002(\005"
+      "\n EneterProtoBufDeclarations.proto\"\037\n\016By" +
+      "teArrayProto\022\r\n\005Value\030\001 \002(\014\"7\n\025ArrayOfBy" +
+      "teArrayProto\022\036\n\005Value\030\001 \003(\0132\017.ByteArrayP" +
+      "roto\"e\n\026MessageBusMessageProto\022\017\n\007Reques" +
+      "t\030\001 \002(\005\022\n\n\002Id\030\002 \002(\t\022\026\n\016MessageDataBin\030\003 " +
+      "\001(\014\022\026\n\016MessageDataStr\030\004 \001(\t\"Z\n\026MultiType" +
+      "dMessageProto\022\020\n\010TypeName\030\001 \002(\t\022\026\n\016Messa" +
+      "geDataBin\030\002 \001(\014\022\026\n\016MessageDataStr\030\003 \001(\t\"" +
+      "\231\001\n\017RpcMessageProto\022\n\n\002Id\030\001 \002(\005\022\014\n\004Flag\030" +
+      "\002 \002(\005\022\025\n\rOperationName\030\003 \002(\t\022\026\n\016Serializ",
+      "edData\030\004 \003(\014\022\021\n\tErrorType\030\005 \002(\t\022\024\n\014Error" +
+      "Message\030\006 \002(\t\022\024\n\014ErrorDetails\030\007 \002(\t\"\037\n\016E" +
+      "ventArgsProto\022\r\n\005dummy\030\001 \002(\005\"W\n\020WrappedD" +
+      "ataProto\022\021\n\tAddedData\030\001 \002(\t\022\027\n\017OriginalD" +
+      "ataBin\030\002 \001(\014\022\027\n\017OriginalDataStr\030\003 \001(\t\"c\n" +
+      "\022BrokerMessageProto\022\017\n\007Request\030\001 \002(\005\022\024\n\014" +
+      "MessageTypes\030\002 \003(\t\022\022\n\nMessageBin\030\003 \001(\014\022\022" +
+      "\n\nMessageStr\030\004 \001(\t\"g\n\032MonitorChannelMess" +
+      "ageProto\022\023\n\013MessageType\030\001 \002(\005\022\031\n\021Message" +
+      "ContentBin\030\002 \001(\014\022\031\n\021MessageContentStr\030\003 ",
+      "\001(\t\"!\n\020VoidMessageProto\022\r\n\005dummy\030\001 \002(\005"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -5981,50 +7097,62 @@ public final class EneterProtoBufDeclarations {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_MessageBusMessageProto_descriptor =
+    internal_static_ByteArrayProto_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_ByteArrayProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_ByteArrayProto_descriptor,
+        new java.lang.String[] { "Value", });
+    internal_static_ArrayOfByteArrayProto_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_ArrayOfByteArrayProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_ArrayOfByteArrayProto_descriptor,
+        new java.lang.String[] { "Value", });
+    internal_static_MessageBusMessageProto_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_MessageBusMessageProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_MessageBusMessageProto_descriptor,
         new java.lang.String[] { "Request", "Id", "MessageDataBin", "MessageDataStr", });
     internal_static_MultiTypedMessageProto_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_MultiTypedMessageProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_MultiTypedMessageProto_descriptor,
         new java.lang.String[] { "TypeName", "MessageDataBin", "MessageDataStr", });
     internal_static_RpcMessageProto_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_RpcMessageProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_RpcMessageProto_descriptor,
         new java.lang.String[] { "Id", "Flag", "OperationName", "SerializedData", "ErrorType", "ErrorMessage", "ErrorDetails", });
     internal_static_EventArgsProto_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_EventArgsProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_EventArgsProto_descriptor,
         new java.lang.String[] { "Dummy", });
     internal_static_WrappedDataProto_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_WrappedDataProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_WrappedDataProto_descriptor,
         new java.lang.String[] { "AddedData", "OriginalDataBin", "OriginalDataStr", });
     internal_static_BrokerMessageProto_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_BrokerMessageProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_BrokerMessageProto_descriptor,
         new java.lang.String[] { "Request", "MessageTypes", "MessageBin", "MessageStr", });
     internal_static_MonitorChannelMessageProto_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_MonitorChannelMessageProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_MonitorChannelMessageProto_descriptor,
         new java.lang.String[] { "MessageType", "MessageContentBin", "MessageContentStr", });
     internal_static_VoidMessageProto_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_VoidMessageProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_VoidMessageProto_descriptor,
