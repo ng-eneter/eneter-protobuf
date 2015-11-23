@@ -94,7 +94,7 @@
       <HintPath>..\..\..\EneterMessaging700\EneterMessagingFramework\bin\Phone81\Release\Eneter.Messaging.Framework.PhoneSilverlight.dll</HintPath>
     </Reference>
     <Reference Include="protobuf-net">
-      <HintPath>..\..\..\..\Ondrej\Projects\Externals\ProtoBufNet\Full\wp8\protobuf-net.dll</HintPath>
+      <HintPath>..\..\ProtoBufNet\Full\wp8\protobuf-net.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />

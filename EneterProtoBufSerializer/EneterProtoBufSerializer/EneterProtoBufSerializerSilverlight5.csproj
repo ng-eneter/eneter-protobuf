@@ -53,7 +53,7 @@
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="protobuf-net">
-      <HintPath>..\..\..\..\Ondrej\Projects\Externals\ProtoBufNet\Full\sl4\protobuf-net.dll</HintPath>
+      <HintPath>..\..\ProtoBufNet\Full\sl4\protobuf-net.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows" />
     <Reference Include="system" />
