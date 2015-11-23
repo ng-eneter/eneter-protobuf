@@ -11,12 +11,17 @@ package eneter.protobuf;
 import static org.junit.Assert.*;
 
 import java.io.Serializable;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.interfaces.RSAPrivateKey;
+import java.security.interfaces.RSAPublicKey;
 import java.util.Arrays;
 
 import org.junit.Test;
 
 import eneter.messaging.dataprocessing.serializing.ISerializer;
 import eneter.messaging.dataprocessing.serializing.JavaBinarySerializer;
+import eneter.messaging.dataprocessing.serializing.RsaSerializer;
 import eneter.messaging.dataprocessing.serializing.XmlStringSerializer;
 import eneter.messaging.endpoints.rpc.RpcMessage;
 import eneter.messaging.endpoints.typedmessages.MultiTypedMessage;
@@ -75,6 +80,37 @@ public class Test_ProtoBufSerializer
         XmlStringSerializer anXmlSerializer = new XmlStringSerializer();
         serializerPerformanceTest(anXmlSerializer, aTestMessage2, TestMessage2.class);
 	}
+	
+	@Test
+    public void serializeDeserializeWithRSA() throws Exception
+    {
+        ProtoBufSerializer anUnderlyingSerializer = new ProtoBufSerializer();
+        
+        KeyPairGenerator aKeyPairGenerator = KeyPairGenerator.getInstance("RSA");
+        aKeyPairGenerator.initialize(1024);
+        KeyPair aKeyPair = aKeyPairGenerator.generateKeyPair();
+        RSAPrivateKey aPrivateKey = (RSAPrivateKey)aKeyPair.getPrivate();
+        RSAPublicKey aPublicKey = (RSAPublicKey)aKeyPair.getPublic();
+        
+        RsaSerializer aSerializer = new RsaSerializer(aPublicKey, aPrivateKey, 128, anUnderlyingSerializer);
+
+        MultiTypedMessage aSrc = new MultiTypedMessage();
+        aSrc.TypeName = "String";
+        aSrc.MessageData = "Hello";
+
+        Object aSerializedData = aSerializer.serialize(aSrc, MultiTypedMessage.class);
+
+        MultiTypedMessage aResult = aSerializer.deserialize(aSerializedData, MultiTypedMessage.class);
+        assertEquals(aSrc.TypeName, aResult.TypeName);
+        assertEquals(aSrc.MessageData, aResult.MessageData);
+
+        aSrc.TypeName = "Byte[]";
+        aSrc.MessageData = new byte[] { 1, 2, 3 };
+        aSerializedData = aSerializer.serialize(aSrc, MultiTypedMessage.class);
+        aResult = aSerializer.deserialize(aSerializedData, MultiTypedMessage.class);
+        assertEquals(aSrc.TypeName, aResult.TypeName);
+        assertTrue(Arrays.equals((byte[])aSrc.MessageData, (byte[])aResult.MessageData));
+    }
 	
 	@Test
     public void serializeDeserializeMultiTypedMessage() throws Exception

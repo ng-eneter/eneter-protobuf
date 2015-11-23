@@ -27,6 +27,33 @@ import eneter.protobuf.EneterProtoBufDeclarations.*;
 
 class EneterTypesWrapper
 {
+    public static byte[] serializeArrayOfByteArray(byte[][] data)
+    {
+        ArrayOfByteArrayProto.Builder aBuilder = ArrayOfByteArrayProto.newBuilder();
+        for (int i = 0; i < data.length; ++i )
+        {
+            ByteString aBytes = (data[i] != null) ? ByteString.copyFrom(data[i]) : ByteString.EMPTY;
+            ByteArrayProto.Builder aSubBuilder = ByteArrayProto.newBuilder().setValue(aBytes);
+            aBuilder.addValue(aSubBuilder.build());
+        }
+        
+        ArrayOfByteArrayProto aMessage = aBuilder.build();
+        return aMessage.toByteArray();
+    }
+    
+    public static byte[][] deserializeArrayOfByteArray(byte[] data) throws InvalidProtocolBufferException
+    {
+        ArrayOfByteArrayProto anArrayOfByteArrayProto = ArrayOfByteArrayProto.parseFrom(data);
+        List<ByteArrayProto> aSubArrays = anArrayOfByteArrayProto.getValueList();
+        byte[][] aMessage = new byte[aSubArrays.size()][];
+        for (int i = 0; i < aSubArrays.size(); ++i)
+        {
+            aMessage[i] = aSubArrays.get(i).getValue().toByteArray();
+        }
+        
+        return aMessage;
+    }
+    
     public static byte[] serializeMultiTypedMessage(MultiTypedMessage data)
     {
         MultiTypedMessageProto.Builder aBuilder = MultiTypedMessageProto.newBuilder()

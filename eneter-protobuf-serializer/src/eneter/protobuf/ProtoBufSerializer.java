@@ -95,7 +95,7 @@ public class ProtoBufSerializer implements ISerializer
                 aUseDirectlyProtobBuf = true;
             }
         }
-        // if it is an array of string or a primitive type.
+        // if it is an array of string or a primitive type or byte[][].
         else if (clazz.isArray())
         {
             if (clazz == Boolean[].class || clazz == Byte[].class || clazz == Character[].class ||
@@ -140,6 +140,10 @@ public class ProtoBufSerializer implements ISerializer
             else if (clazz == double[].class)
             {
                 aSerializedData = PrimitiveTypesWrapper.serializeDoubleArray((double[])dataToSerialize);
+            }
+            else if (clazz == byte[][].class)
+            {
+                aSerializedData = EneterTypesWrapper.serializeArrayOfByteArray((byte[][])dataToSerialize);
             }
             else
             {
@@ -268,7 +272,7 @@ public class ProtoBufSerializer implements ISerializer
                 aUseDirectlyProtoBuf = true;
             }
         }
-        // If is an array of string or a primitive type.
+        // If is an array of string or a primitive type or byte[][].
         else if (clazz.isArray())
         {
             if (clazz == Boolean[].class || clazz == Byte[].class || clazz == Character[].class ||
@@ -313,6 +317,10 @@ public class ProtoBufSerializer implements ISerializer
             else if (clazz == double[].class)
             {
                 aDeserializedObject = clazz.cast(PrimitiveTypesWrapper.deserializeDoubleArray((byte[])serializedData));
+            }
+            else if (clazz == byte[][].class)
+            {
+                aDeserializedObject = clazz.cast(EneterTypesWrapper.deserializeArrayOfByteArray((byte[])serializedData));
             }
             else
             {
