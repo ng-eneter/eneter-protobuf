@@ -411,7 +411,7 @@ namespace EneterProtoBufSerializer_UTests
             Assert.True(dou.SequenceEqual(aD19));
 
             object aDeserializedReturn = aProtoBufSerializer.Deserialize<string>(aDeserialized.SerializedReturn);
-            Assert.AreEqual(anRpcMessage.SerializedReturn, aDeserialized.SerializedReturn);
+            Assert.AreEqual("DummyReturn", aDeserializedReturn);
         }
 
         private void SerializerPerformanceTest<T>(ISerializer serializer, T dataToSerialize)
