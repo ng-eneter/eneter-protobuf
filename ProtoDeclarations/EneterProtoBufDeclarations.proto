@@ -29,12 +29,13 @@ message MultiTypedMessageProto
 message RpcMessageProto
 {
     required int32 Id = 1;
-    required int32 Flag = 2;
+    required int32 Request = 2;
     required string OperationName = 3;
-    repeated bytes SerializedData = 4;
-    required string ErrorType = 5;
-    required string ErrorMessage = 6;
-    required string ErrorDetails = 7;
+    repeated bytes SerializedParams = 4;
+    required bytes SerializedReturn = 5;
+    required string ErrorType = 6;
+    required string ErrorMessage = 7;
+    required string ErrorDetails = 8;
 }
 
 // EventArgs can be used in RPC communication.
