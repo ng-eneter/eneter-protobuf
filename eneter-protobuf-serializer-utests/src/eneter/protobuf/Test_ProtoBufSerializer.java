@@ -23,6 +23,7 @@ import eneter.messaging.dataprocessing.serializing.ISerializer;
 import eneter.messaging.dataprocessing.serializing.JavaBinarySerializer;
 import eneter.messaging.dataprocessing.serializing.RsaSerializer;
 import eneter.messaging.dataprocessing.serializing.XmlStringSerializer;
+import eneter.messaging.endpoints.rpc.ERpcRequest;
 import eneter.messaging.endpoints.rpc.RpcMessage;
 import eneter.messaging.endpoints.typedmessages.MultiTypedMessage;
 import eneter.messaging.endpoints.typedmessages.VoidMessage;
@@ -318,12 +319,13 @@ public class Test_ProtoBufSerializer
 	    
         RpcMessage anRpcMessage = new RpcMessage();
         anRpcMessage.Id = 102;
-        anRpcMessage.Flag = 20;
+        anRpcMessage.Request = ERpcRequest.InvokeMethod;
         anRpcMessage.OperationName = "DummyOperation";
+        anRpcMessage.SerializedReturn = aProtoBufSerializer.serialize("DummyReturn", String.class);
         anRpcMessage.ErrorType = "DummyErrorType";
         anRpcMessage.ErrorMessage = "DummyError";
         anRpcMessage.ErrorDetails = "DummyErrorDetails";
-        anRpcMessage.SerializedData = new Object[]
+        anRpcMessage.SerializedParams = new Object[]
                 { aParam1, aParam2, aParam3, aParam4, aParam5, aParam6, aParam7, aParam8, aParam9, aParam10,
                   aParam11, aParam12, aParam13, aParam14, aParam15, aParam16, aParam17, aParam18, aParam19};
         
@@ -332,34 +334,34 @@ public class Test_ProtoBufSerializer
         RpcMessage aDeserialized = aProtoBufSerializer.deserialize(aSerialized, RpcMessage.class);
         
         assertEquals(anRpcMessage.Id, aDeserialized.Id);
-        assertEquals(anRpcMessage.Flag, aDeserialized.Flag);
+        assertEquals(anRpcMessage.Request, aDeserialized.Request);
         assertEquals(anRpcMessage.OperationName, aDeserialized.OperationName);
         assertEquals(anRpcMessage.ErrorType, aDeserialized.ErrorType);
         assertEquals(anRpcMessage.ErrorMessage, aDeserialized.ErrorMessage);
         assertEquals(anRpcMessage.ErrorDetails, aDeserialized.ErrorDetails);
 
-        assertEquals(19, aDeserialized.SerializedData.length);
+        assertEquals(19, aDeserialized.SerializedParams.length);
 
-        String aD1 = aProtoBufSerializer.deserialize(aDeserialized.SerializedData[0], String.class);
-        boolean aD2 = aProtoBufSerializer.deserialize(aDeserialized.SerializedData[1], boolean.class);
-        boolean aD3 = aProtoBufSerializer.deserialize(aDeserialized.SerializedData[2], boolean.class);
-        byte aD4 = aProtoBufSerializer.deserialize(aDeserialized.SerializedData[3], byte.class);
-        char aD5 = aProtoBufSerializer.deserialize(aDeserialized.SerializedData[4], char.class);
-        short aD6 = aProtoBufSerializer.deserialize(aDeserialized.SerializedData[5], short.class);
-        int aD7 = aProtoBufSerializer.deserialize(aDeserialized.SerializedData[6], int.class);
-        long aD8 = aProtoBufSerializer.deserialize(aDeserialized.SerializedData[7], long.class);
-        float aD9 = aProtoBufSerializer.deserialize(aDeserialized.SerializedData[8], float.class);
-        double aD10 = aProtoBufSerializer.deserialize(aDeserialized.SerializedData[9], double.class);
+        String aD1 = aProtoBufSerializer.deserialize(aDeserialized.SerializedParams[0], String.class);
+        boolean aD2 = aProtoBufSerializer.deserialize(aDeserialized.SerializedParams[1], boolean.class);
+        boolean aD3 = aProtoBufSerializer.deserialize(aDeserialized.SerializedParams[2], boolean.class);
+        byte aD4 = aProtoBufSerializer.deserialize(aDeserialized.SerializedParams[3], byte.class);
+        char aD5 = aProtoBufSerializer.deserialize(aDeserialized.SerializedParams[4], char.class);
+        short aD6 = aProtoBufSerializer.deserialize(aDeserialized.SerializedParams[5], short.class);
+        int aD7 = aProtoBufSerializer.deserialize(aDeserialized.SerializedParams[6], int.class);
+        long aD8 = aProtoBufSerializer.deserialize(aDeserialized.SerializedParams[7], long.class);
+        float aD9 = aProtoBufSerializer.deserialize(aDeserialized.SerializedParams[8], float.class);
+        double aD10 = aProtoBufSerializer.deserialize(aDeserialized.SerializedParams[9], double.class);
         
-        String[] aD11 = aProtoBufSerializer.deserialize(aDeserialized.SerializedData[10], String[].class);
-        boolean[] aD12 = aProtoBufSerializer.deserialize(aDeserialized.SerializedData[11], boolean[].class);
-        byte[] aD13 = aProtoBufSerializer.deserialize(aDeserialized.SerializedData[12], byte[].class);
-        char[] aD14 = aProtoBufSerializer.deserialize(aDeserialized.SerializedData[13], char[].class);
-        short[] aD15 = aProtoBufSerializer.deserialize(aDeserialized.SerializedData[14], short[].class);
-        int[] aD16 = aProtoBufSerializer.deserialize(aDeserialized.SerializedData[15], int[].class);
-        long[] aD17 = aProtoBufSerializer.deserialize(aDeserialized.SerializedData[16], long[].class);
-        float[] aD18 = aProtoBufSerializer.deserialize(aDeserialized.SerializedData[17], float[].class);
-        double[] aD19 = aProtoBufSerializer.deserialize(aDeserialized.SerializedData[18], double[].class);
+        String[] aD11 = aProtoBufSerializer.deserialize(aDeserialized.SerializedParams[10], String[].class);
+        boolean[] aD12 = aProtoBufSerializer.deserialize(aDeserialized.SerializedParams[11], boolean[].class);
+        byte[] aD13 = aProtoBufSerializer.deserialize(aDeserialized.SerializedParams[12], byte[].class);
+        char[] aD14 = aProtoBufSerializer.deserialize(aDeserialized.SerializedParams[13], char[].class);
+        short[] aD15 = aProtoBufSerializer.deserialize(aDeserialized.SerializedParams[14], short[].class);
+        int[] aD16 = aProtoBufSerializer.deserialize(aDeserialized.SerializedParams[15], int[].class);
+        long[] aD17 = aProtoBufSerializer.deserialize(aDeserialized.SerializedParams[16], long[].class);
+        float[] aD18 = aProtoBufSerializer.deserialize(aDeserialized.SerializedParams[17], float[].class);
+        double[] aD19 = aProtoBufSerializer.deserialize(aDeserialized.SerializedParams[18], double[].class);
 
         assertEquals("hello", aD1);
         assertEquals(true, aD2);
@@ -385,6 +387,9 @@ public class Test_ProtoBufSerializer
         assertTrue(Arrays.equals(aD17, lo));
         assertTrue(Arrays.equals(aD18, fl));
         assertTrue(Arrays.equals(aD19, dou));
+        
+        Object aDeserializedReturn = aProtoBufSerializer.deserialize(aDeserialized.SerializedReturn, String.class);
+        assertEquals("DummyReturn", aDeserializedReturn);
     }
 	
 	private <T> void serializerPerformanceTest(ISerializer serializer, T dataToSerialize, Class<T> clazz) throws Exception
