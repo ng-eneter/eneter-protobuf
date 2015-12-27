@@ -14,6 +14,7 @@ import java.util.List;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 
+import eneter.messaging.endpoints.rpc.ERpcRequest;
 import eneter.messaging.endpoints.rpc.RpcMessage;
 import eneter.messaging.endpoints.typedmessages.MultiTypedMessage;
 import eneter.messaging.endpoints.typedmessages.VoidMessage;
@@ -135,16 +136,17 @@ class EneterTypesWrapper
     {
         RpcMessageProto.Builder aBuilder = RpcMessageProto.newBuilder()
                 .setId(data.Id)
-                .setFlag(data.Flag)
+                .setRequest(data.Request.geValue())
                 .setOperationName(data.OperationName)
+                .setSerializedReturn(ByteString.copyFrom((byte[])data.SerializedReturn))
                 .setErrorType(data.ErrorType)
                 .setErrorMessage(data.ErrorMessage)
                 .setErrorDetails(data.ErrorDetails);
-        if (data.SerializedData != null)
+        if (data.SerializedParams != null)
         {
-            for (int i = 0; i < data.SerializedData.length; ++i)
+            for (int i = 0; i < data.SerializedParams.length; ++i)
             {
-                aBuilder.addSerializedData(ByteString.copyFrom((byte[]) data.SerializedData[i]));
+                aBuilder.addSerializedParams(ByteString.copyFrom((byte[]) data.SerializedParams[i]));
             }
         }
         
@@ -157,19 +159,20 @@ class EneterTypesWrapper
         RpcMessageProto anRpcMessageProto = RpcMessageProto.parseFrom(data);
         RpcMessage anRpcMessage = new RpcMessage();
         anRpcMessage.Id = anRpcMessageProto.getId();
-        anRpcMessage.Flag = anRpcMessageProto.getFlag();
+        anRpcMessage.Request = ERpcRequest.fromInt(anRpcMessageProto.getRequest());
         anRpcMessage.OperationName = anRpcMessageProto.getOperationName();
+        anRpcMessage.SerializedReturn = anRpcMessageProto.getSerializedReturn().toByteArray();
         anRpcMessage.ErrorType = anRpcMessageProto.getErrorType();
         anRpcMessage.ErrorMessage = anRpcMessageProto.getErrorMessage();
         anRpcMessage.ErrorDetails = anRpcMessageProto.getErrorDetails();
         
-        List<ByteString> aMethodParams = anRpcMessageProto.getSerializedDataList();
+        List<ByteString> aMethodParams = anRpcMessageProto.getSerializedParamsList();
         if (aMethodParams != null)
         {
-            anRpcMessage.SerializedData = new Object[aMethodParams.size()];
+            anRpcMessage.SerializedParams = new Object[aMethodParams.size()];
             for (int i = 0; i < aMethodParams.size(); ++i)
             {
-                anRpcMessage.SerializedData[i] = aMethodParams.get(i).toByteArray();
+                anRpcMessage.SerializedParams[i] = aMethodParams.get(i).toByteArray();
             }
         }
         
