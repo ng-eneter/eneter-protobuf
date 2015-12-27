@@ -340,13 +340,11 @@ namespace EneterProtoBufSerializer_UTests
             byte[] aParam18 = aProtoBufSerializer.Serialize<float[]>(fl) as byte[];
             byte[] aParam19 = aProtoBufSerializer.Serialize<double[]>(dou) as byte[];
 
-            
             RpcMessage anRpcMessage = new RpcMessage();
             anRpcMessage.Id = 102;
             anRpcMessage.Request = ERpcRequest.InvokeMethod;
             anRpcMessage.OperationName = "DummyOperation";
-            anRpcMessage.SerializedReturn = "DummyReturn";
-
+            anRpcMessage.SerializedReturn = aProtoBufSerializer.Serialize<string>("DummyReturn") as byte[];
             anRpcMessage.ErrorType = "DummyErrorType";
             anRpcMessage.ErrorMessage = "DummyError";
             anRpcMessage.ErrorDetails = "DummyDetails";
@@ -362,7 +360,6 @@ namespace EneterProtoBufSerializer_UTests
             Assert.AreEqual(anRpcMessage.Id, aDeserialized.Id);
             Assert.AreEqual(anRpcMessage.Request, aDeserialized.Request);
             Assert.AreEqual(anRpcMessage.OperationName, aDeserialized.OperationName);
-            Assert.AreEqual(anRpcMessage.SerializedReturn, aDeserialized.SerializedReturn);
             Assert.AreEqual(anRpcMessage.ErrorType, aDeserialized.ErrorType);
             Assert.AreEqual(anRpcMessage.ErrorMessage, aDeserialized.ErrorMessage);
             Assert.AreEqual(anRpcMessage.ErrorDetails, aDeserialized.ErrorDetails);
@@ -412,6 +409,9 @@ namespace EneterProtoBufSerializer_UTests
             Assert.True(lo.SequenceEqual(aD17));
             Assert.True(fl.SequenceEqual(aD18));
             Assert.True(dou.SequenceEqual(aD19));
+
+            object aDeserializedReturn = aProtoBufSerializer.Deserialize<string>(aDeserialized.SerializedReturn);
+            Assert.AreEqual(anRpcMessage.SerializedReturn, aDeserialized.SerializedReturn);
         }
 
         private void SerializerPerformanceTest<T>(ISerializer serializer, T dataToSerialize)

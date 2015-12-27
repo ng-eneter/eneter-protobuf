@@ -237,7 +237,7 @@ namespace Eneter.ProtoBuf
                     anRpcMessageProto.SerializedParams.Add(aMethodParameter);
                 }
             }
-            anRpcMessageProto.SerializedReturn.Add((byte[])data.SerializedReturn);
+            anRpcMessageProto.SerializedReturn = (byte[])data.SerializedReturn;
             anRpcMessageProto.ErrorType = data.ErrorType;
             anRpcMessageProto.ErrorMessage = data.ErrorMessage;
             anRpcMessageProto.ErrorDetails = data.ErrorDetails;

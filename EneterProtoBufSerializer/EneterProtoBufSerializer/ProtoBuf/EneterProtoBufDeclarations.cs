@@ -190,13 +190,13 @@ namespace Eneter.ProtoBuf
       get { return _SerializedParams; }
     }
   
-    private readonly global::System.Collections.Generic.List<byte[]> _SerializedReturn = new global::System.Collections.Generic.List<byte[]>();
-    [global::ProtoBuf.ProtoMember(5, Name=@"SerializedReturn", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<byte[]> SerializedReturn
+    private byte[] _SerializedReturn;
+    [global::ProtoBuf.ProtoMember(5, IsRequired = true, Name=@"SerializedReturn", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public byte[] SerializedReturn
     {
       get { return _SerializedReturn; }
+      set { _SerializedReturn = value; }
     }
-  
     private string _ErrorType;
     [global::ProtoBuf.ProtoMember(6, IsRequired = true, Name=@"ErrorType", DataFormat = global::ProtoBuf.DataFormat.Default)]
     public string ErrorType
