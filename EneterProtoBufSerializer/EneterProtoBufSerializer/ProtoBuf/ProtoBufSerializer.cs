@@ -228,15 +228,16 @@ namespace Eneter.ProtoBuf
         {
             RpcMessageProto anRpcMessageProto = new RpcMessageProto();
             anRpcMessageProto.Id = data.Id;
-            anRpcMessageProto.Flag = data.Flag;
+            anRpcMessageProto.Request = (int)data.Request;
             anRpcMessageProto.OperationName = data.OperationName;
-            if (data.SerializedData != null)
+            if (data.SerializedParams != null)
             {
-                foreach (byte[] aMethodParameter in data.SerializedData)
+                foreach (byte[] aMethodParameter in data.SerializedParams)
                 {
-                    anRpcMessageProto.SerializedData.Add(aMethodParameter);
+                    anRpcMessageProto.SerializedParams.Add(aMethodParameter);
                 }
             }
+            anRpcMessageProto.SerializedReturn.Add((byte[])data.SerializedReturn);
             anRpcMessageProto.ErrorType = data.ErrorType;
             anRpcMessageProto.ErrorMessage = data.ErrorMessage;
             anRpcMessageProto.ErrorDetails = data.ErrorDetails;
@@ -249,20 +250,23 @@ namespace Eneter.ProtoBuf
             RpcMessageProto anRpcMessageProto = Serializer.Deserialize<RpcMessageProto>(data);
             RpcMessage anRpcMessage = new RpcMessage();
             anRpcMessage.Id = anRpcMessageProto.Id;
-            anRpcMessage.Flag = anRpcMessageProto.Flag;
+            anRpcMessage.Request = (ERpcRequest)anRpcMessageProto.Request;
             anRpcMessage.OperationName = anRpcMessageProto.OperationName;
+            
+            if (anRpcMessageProto.SerializedParams != null)
+            {
+                anRpcMessage.SerializedParams = new object[anRpcMessageProto.SerializedParams.Count];
+                for (int i = 0; i < anRpcMessageProto.SerializedParams.Count; ++i)
+                {
+                    anRpcMessage.SerializedParams[i] = anRpcMessageProto.SerializedParams[i];
+                }
+            }
+
+            anRpcMessage.SerializedReturn = anRpcMessageProto.SerializedReturn;
+
             anRpcMessage.ErrorType = anRpcMessageProto.ErrorType;
             anRpcMessage.ErrorMessage = anRpcMessageProto.ErrorMessage;
             anRpcMessage.ErrorDetails = anRpcMessageProto.ErrorDetails;
-            
-            if (anRpcMessageProto.SerializedData != null)
-            {
-                anRpcMessage.SerializedData = new object[anRpcMessageProto.SerializedData.Count];
-                for (int i = 0; i < anRpcMessageProto.SerializedData.Count; ++i)
-                {
-                    anRpcMessage.SerializedData[i] = anRpcMessageProto.SerializedData[i];
-                }
-            }
 
             return anRpcMessage;
         }

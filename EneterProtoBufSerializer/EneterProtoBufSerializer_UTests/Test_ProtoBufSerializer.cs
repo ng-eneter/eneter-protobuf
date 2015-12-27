@@ -343,14 +343,15 @@ namespace EneterProtoBufSerializer_UTests
             
             RpcMessage anRpcMessage = new RpcMessage();
             anRpcMessage.Id = 102;
-            anRpcMessage.Flag = 20;
+            anRpcMessage.Request = ERpcRequest.InvokeMethod;
             anRpcMessage.OperationName = "DummyOperation";
+            anRpcMessage.SerializedReturn = "DummyReturn";
 
             anRpcMessage.ErrorType = "DummyErrorType";
             anRpcMessage.ErrorMessage = "DummyError";
             anRpcMessage.ErrorDetails = "DummyDetails";
             
-            anRpcMessage.SerializedData = new object[]
+            anRpcMessage.SerializedParams = new object[]
                 { aParam1, aParam2, aParam3, aParam4, aParam5, aParam6, aParam7, aParam8, aParam9, aParam10,
                   aParam11, aParam12, aParam13, aParam14, aParam15, aParam16, aParam17, aParam18, aParam19};
 
@@ -359,34 +360,35 @@ namespace EneterProtoBufSerializer_UTests
             RpcMessage aDeserialized = aProtoBufSerializer.Deserialize<RpcMessage>(aSerialized);
 
             Assert.AreEqual(anRpcMessage.Id, aDeserialized.Id);
-            Assert.AreEqual(anRpcMessage.Flag, aDeserialized.Flag);
+            Assert.AreEqual(anRpcMessage.Request, aDeserialized.Request);
             Assert.AreEqual(anRpcMessage.OperationName, aDeserialized.OperationName);
+            Assert.AreEqual(anRpcMessage.SerializedReturn, aDeserialized.SerializedReturn);
             Assert.AreEqual(anRpcMessage.ErrorType, aDeserialized.ErrorType);
             Assert.AreEqual(anRpcMessage.ErrorMessage, aDeserialized.ErrorMessage);
             Assert.AreEqual(anRpcMessage.ErrorDetails, aDeserialized.ErrorDetails);
 
-            Assert.AreEqual(19, aDeserialized.SerializedData.Length);
+            Assert.AreEqual(19, aDeserialized.SerializedParams.Length);
 
-            string aD1 = aProtoBufSerializer.Deserialize<string>(aDeserialized.SerializedData[0]);
-            bool aD2 = aProtoBufSerializer.Deserialize<bool>(aDeserialized.SerializedData[1]);
-            bool aD3 = aProtoBufSerializer.Deserialize<bool>(aDeserialized.SerializedData[2]);
-            byte aD4 = aProtoBufSerializer.Deserialize<byte>(aDeserialized.SerializedData[3]);
-            char aD5 = aProtoBufSerializer.Deserialize<char>(aDeserialized.SerializedData[4]);
-            short aD6 = aProtoBufSerializer.Deserialize<short>(aDeserialized.SerializedData[5]);
-            int aD7 = aProtoBufSerializer.Deserialize<int>(aDeserialized.SerializedData[6]);
-            long aD8 = aProtoBufSerializer.Deserialize<long>(aDeserialized.SerializedData[7]);
-            float aD9 = aProtoBufSerializer.Deserialize<float>(aDeserialized.SerializedData[8]);
-            double aD10 = aProtoBufSerializer.Deserialize<double>(aDeserialized.SerializedData[9]);
-        
-            string[] aD11 = aProtoBufSerializer.Deserialize<string[]>(aDeserialized.SerializedData[10]);
-            bool[] aD12 = aProtoBufSerializer.Deserialize<bool[]>(aDeserialized.SerializedData[11]);
-            byte[] aD13 = aProtoBufSerializer.Deserialize<byte[]>(aDeserialized.SerializedData[12]);
-            char[] aD14 = aProtoBufSerializer.Deserialize<char[]>(aDeserialized.SerializedData[13]);
-            short[] aD15 = aProtoBufSerializer.Deserialize<short[]>(aDeserialized.SerializedData[14]);
-            int[] aD16 = aProtoBufSerializer.Deserialize<int[]>(aDeserialized.SerializedData[15]);
-            long[] aD17 = aProtoBufSerializer.Deserialize<long[]>(aDeserialized.SerializedData[16]);
-            float[] aD18 = aProtoBufSerializer.Deserialize<float[]>(aDeserialized.SerializedData[17]);
-            double[] aD19 = aProtoBufSerializer.Deserialize<double[]>(aDeserialized.SerializedData[18]);
+            string aD1 = aProtoBufSerializer.Deserialize<string>(aDeserialized.SerializedParams[0]);
+            bool aD2 = aProtoBufSerializer.Deserialize<bool>(aDeserialized.SerializedParams[1]);
+            bool aD3 = aProtoBufSerializer.Deserialize<bool>(aDeserialized.SerializedParams[2]);
+            byte aD4 = aProtoBufSerializer.Deserialize<byte>(aDeserialized.SerializedParams[3]);
+            char aD5 = aProtoBufSerializer.Deserialize<char>(aDeserialized.SerializedParams[4]);
+            short aD6 = aProtoBufSerializer.Deserialize<short>(aDeserialized.SerializedParams[5]);
+            int aD7 = aProtoBufSerializer.Deserialize<int>(aDeserialized.SerializedParams[6]);
+            long aD8 = aProtoBufSerializer.Deserialize<long>(aDeserialized.SerializedParams[7]);
+            float aD9 = aProtoBufSerializer.Deserialize<float>(aDeserialized.SerializedParams[8]);
+            double aD10 = aProtoBufSerializer.Deserialize<double>(aDeserialized.SerializedParams[9]);
+
+            string[] aD11 = aProtoBufSerializer.Deserialize<string[]>(aDeserialized.SerializedParams[10]);
+            bool[] aD12 = aProtoBufSerializer.Deserialize<bool[]>(aDeserialized.SerializedParams[11]);
+            byte[] aD13 = aProtoBufSerializer.Deserialize<byte[]>(aDeserialized.SerializedParams[12]);
+            char[] aD14 = aProtoBufSerializer.Deserialize<char[]>(aDeserialized.SerializedParams[13]);
+            short[] aD15 = aProtoBufSerializer.Deserialize<short[]>(aDeserialized.SerializedParams[14]);
+            int[] aD16 = aProtoBufSerializer.Deserialize<int[]>(aDeserialized.SerializedParams[15]);
+            long[] aD17 = aProtoBufSerializer.Deserialize<long[]>(aDeserialized.SerializedParams[16]);
+            float[] aD18 = aProtoBufSerializer.Deserialize<float[]>(aDeserialized.SerializedParams[17]);
+            double[] aD19 = aProtoBufSerializer.Deserialize<double[]>(aDeserialized.SerializedParams[18]);
 
             Assert.AreEqual("hello", aD1);
             Assert.AreEqual(true, aD2);

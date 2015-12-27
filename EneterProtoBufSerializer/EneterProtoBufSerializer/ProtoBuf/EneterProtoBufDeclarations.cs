@@ -169,12 +169,12 @@ namespace Eneter.ProtoBuf
       get { return _Id; }
       set { _Id = value; }
     }
-    private int _Flag;
-    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"Flag", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public int Flag
+    private int _Request;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"Request", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int Request
     {
-      get { return _Flag; }
-      set { _Flag = value; }
+      get { return _Request; }
+      set { _Request = value; }
     }
     private string _OperationName;
     [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"OperationName", DataFormat = global::ProtoBuf.DataFormat.Default)]
@@ -183,29 +183,36 @@ namespace Eneter.ProtoBuf
       get { return _OperationName; }
       set { _OperationName = value; }
     }
-    private readonly global::System.Collections.Generic.List<byte[]> _SerializedData = new global::System.Collections.Generic.List<byte[]>();
-    [global::ProtoBuf.ProtoMember(4, Name=@"SerializedData", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<byte[]> SerializedData
+    private readonly global::System.Collections.Generic.List<byte[]> _SerializedParams = new global::System.Collections.Generic.List<byte[]>();
+    [global::ProtoBuf.ProtoMember(4, Name=@"SerializedParams", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public global::System.Collections.Generic.List<byte[]> SerializedParams
     {
-      get { return _SerializedData; }
+      get { return _SerializedParams; }
+    }
+  
+    private readonly global::System.Collections.Generic.List<byte[]> _SerializedReturn = new global::System.Collections.Generic.List<byte[]>();
+    [global::ProtoBuf.ProtoMember(5, Name=@"SerializedReturn", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public global::System.Collections.Generic.List<byte[]> SerializedReturn
+    {
+      get { return _SerializedReturn; }
     }
   
     private string _ErrorType;
-    [global::ProtoBuf.ProtoMember(5, IsRequired = true, Name=@"ErrorType", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::ProtoBuf.ProtoMember(6, IsRequired = true, Name=@"ErrorType", DataFormat = global::ProtoBuf.DataFormat.Default)]
     public string ErrorType
     {
       get { return _ErrorType; }
       set { _ErrorType = value; }
     }
     private string _ErrorMessage;
-    [global::ProtoBuf.ProtoMember(6, IsRequired = true, Name=@"ErrorMessage", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::ProtoBuf.ProtoMember(7, IsRequired = true, Name=@"ErrorMessage", DataFormat = global::ProtoBuf.DataFormat.Default)]
     public string ErrorMessage
     {
       get { return _ErrorMessage; }
       set { _ErrorMessage = value; }
     }
     private string _ErrorDetails;
-    [global::ProtoBuf.ProtoMember(7, IsRequired = true, Name=@"ErrorDetails", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::ProtoBuf.ProtoMember(8, IsRequired = true, Name=@"ErrorDetails", DataFormat = global::ProtoBuf.DataFormat.Default)]
     public string ErrorDetails
     {
       get { return _ErrorDetails; }
