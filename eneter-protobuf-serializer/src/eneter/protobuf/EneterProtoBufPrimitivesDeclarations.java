@@ -3,7 +3,7 @@
 
 package eneter.protobuf;
 
-public final class EneterProtoBufPrimitivesDeclarations {
+final class EneterProtoBufPrimitivesDeclarations {
   private EneterProtoBufPrimitivesDeclarations() {}
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
