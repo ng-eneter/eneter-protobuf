@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>EneterProtobufSerializer</id>
+        <version>7.0.0</version>
+        <authors>Ondrej</authors>
+        <owners>Ondrej Uzovic</owners>
+        <licenseUrl>https://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Protocol Buffer serializer for Eneter Messaging Framework</description>
+        <copyright>Ondrej Uzovic</copyright>
+        <tags>serializer protocol buffer serialization deserialization eneter</tags>
+    </metadata>
+    <files>
+        <file src="..\proto\ProtoGen\common.xslt" target="Eneter.ProtoBuf.Serializer\ProtoGen\common.xslt" />
+        <file src="..\proto\ProtoGen\csharp.xslt" target="Eneter.ProtoBuf.Serializer\ProtoGen\csharp.xslt" />
+        <file src="..\proto\ProtoGen\descriptor.proto" target="Eneter.ProtoBuf.Serializer\ProtoGen\descriptor.proto" />
+        <file src="..\proto\ProtoGen\Licence.txt" target="Eneter.ProtoBuf.Serializer\ProtoGen\Licence.txt" />
+        <file src="..\proto\ProtoGen\protobuf-net.dll" target="Eneter.ProtoBuf.Serializer\ProtoGen\protobuf-net.dll" />
+        <file src="..\proto\ProtoGen\protobuf-net.pdb" target="Eneter.ProtoBuf.Serializer\ProtoGen\protobuf-net.pdb" />
+        <file src="..\proto\ProtoGen\protobuf-net.xml" target="Eneter.ProtoBuf.Serializer\ProtoGen\protobuf-net.xml" />
+        <file src="..\proto\ProtoGen\protoc-license.txt" target="Eneter.ProtoBuf.Serializer\ProtoGen\protoc-license.txt" />
+        <file src="..\proto\ProtoGen\protogen.exe" target="Eneter.ProtoBuf.Serializer\ProtoGen\protogen.exe" />
+        <file src="..\proto\ProtoGen\protogen.exe.config" target="Eneter.ProtoBuf.Serializer\ProtoGen\protogen.exe.config" />
+        <file src="..\proto\ProtoGen\protogen.pdb" target="Eneter.ProtoBuf.Serializer\ProtoGen\protogen.pdb" />
+        <file src="..\proto\ProtoGen\vb.xslt" target="Eneter.ProtoBuf.Serializer\ProtoGen\vb.xslt" />
+        <file src="..\proto\ProtoGen\xml.xslt" target="Eneter.ProtoBuf.Serializer\ProtoGen\xml.xslt" />
+        <file src="EneterProtoBufSerializer\bin\Net35\Release\Eneter.ProtoBuf.Serializer.dll" target="Eneter.ProtoBuf.Serializer\v7.0.0\net35\Eneter.ProtoBuf.Serializer.dll" />
+        <file src="EneterProtoBufSerializer\bin\Net35\Release\Eneter.ProtoBuf.Serializer.pdb" target="Eneter.ProtoBuf.Serializer\v7.0.0\net35\Eneter.ProtoBuf.Serializer.pdb" />
+        <file src="EneterProtoBufSerializer\bin\Net35\Release\Eneter.ProtoBuf.Serializer.XML" target="Eneter.ProtoBuf.Serializer\v7.0.0\net35\Eneter.ProtoBuf.Serializer.XML" />
+        <file src="EneterProtoBufSerializer\bin\Net35\Release\protobuf-net.dll" target="Eneter.ProtoBuf.Serializer\v7.0.0\net35\protobuf-net.dll" />
+        <file src="EneterProtoBufSerializer\bin\Net35\Release\protobuf-net.pdb" target="Eneter.ProtoBuf.Serializer\v7.0.0\net35\protobuf-net.pdb" />
+        <file src="EneterProtoBufSerializer\bin\Net35\Release\protobuf-net.xml" target="Eneter.ProtoBuf.Serializer\v7.0.0\net35\protobuf-net.xml" />
+        <file src="EneterProtoBufSerializer\bin\Net40\Release\Eneter.ProtoBuf.Serializer.dll" target="Eneter.ProtoBuf.Serializer\v7.0.0\net40\Eneter.ProtoBuf.Serializer.dll" />
+        <file src="EneterProtoBufSerializer\bin\Net40\Release\Eneter.ProtoBuf.Serializer.pdb" target="Eneter.ProtoBuf.Serializer\v7.0.0\net40\Eneter.ProtoBuf.Serializer.pdb" />
+        <file src="EneterProtoBufSerializer\bin\Net40\Release\Eneter.ProtoBuf.Serializer.XML" target="Eneter.ProtoBuf.Serializer\v7.0.0\net40\Eneter.ProtoBuf.Serializer.XML" />
+        <file src="EneterProtoBufSerializer\bin\Net40\Release\protobuf-net.dll" target="Eneter.ProtoBuf.Serializer\v7.0.0\net40\protobuf-net.dll" />
+        <file src="EneterProtoBufSerializer\bin\Net40\Release\protobuf-net.pdb" target="Eneter.ProtoBuf.Serializer\v7.0.0\net40\protobuf-net.pdb" />
+        <file src="EneterProtoBufSerializer\bin\Net40\Release\protobuf-net.xml" target="Eneter.ProtoBuf.Serializer\v7.0.0\net40\protobuf-net.xml" />
+        <file src="EneterProtoBufSerializer\bin\Phone80\Release\Eneter.ProtoBuf.Serializer.PhoneSilverlight.dll" target="Eneter.ProtoBuf.Serializer\v7.0.0\Phone80\Eneter.ProtoBuf.Serializer.PhoneSilverlight.dll" />
+        <file src="EneterProtoBufSerializer\bin\Phone80\Release\Eneter.ProtoBuf.Serializer.PhoneSilverlight.pdb" target="Eneter.ProtoBuf.Serializer\v7.0.0\Phone80\Eneter.ProtoBuf.Serializer.PhoneSilverlight.pdb" />
+        <file src="EneterProtoBufSerializer\bin\Phone80\Release\Eneter.ProtoBuf.Serializer.PhoneSilverlight.xml" target="Eneter.ProtoBuf.Serializer\v7.0.0\Phone80\Eneter.ProtoBuf.Serializer.PhoneSilverlight.xml" />
+        <file src="EneterProtoBufSerializer\bin\Phone80\Release\protobuf-net.dll" target="Eneter.ProtoBuf.Serializer\v7.0.0\Phone80\protobuf-net.dll" />
+        <file src="EneterProtoBufSerializer\bin\Phone80\Release\protobuf-net.pdb" target="Eneter.ProtoBuf.Serializer\v7.0.0\Phone80\protobuf-net.pdb" />
+        <file src="EneterProtoBufSerializer\bin\Phone80\Release\protobuf-net.xml" target="Eneter.ProtoBuf.Serializer\v7.0.0\Phone80\protobuf-net.xml" />
+        <file src="EneterProtoBufSerializer\bin\Phone81\Release\Eneter.ProtoBuf.Serializer.PhoneSilverlight.dll" target="Eneter.ProtoBuf.Serializer\v7.0.0\Phone81\Eneter.ProtoBuf.Serializer.PhoneSilverlight.dll" />
+        <file src="EneterProtoBufSerializer\bin\Phone81\Release\Eneter.ProtoBuf.Serializer.PhoneSilverlight.pdb" target="Eneter.ProtoBuf.Serializer\v7.0.0\Phone81\Eneter.ProtoBuf.Serializer.PhoneSilverlight.pdb" />
+        <file src="EneterProtoBufSerializer\bin\Phone81\Release\Eneter.ProtoBuf.Serializer.PhoneSilverlight.XML" target="Eneter.ProtoBuf.Serializer\v7.0.0\Phone81\Eneter.ProtoBuf.Serializer.PhoneSilverlight.XML" />
+        <file src="EneterProtoBufSerializer\bin\Phone81\Release\protobuf-net.dll" target="Eneter.ProtoBuf.Serializer\v7.0.0\Phone81\protobuf-net.dll" />
+        <file src="EneterProtoBufSerializer\bin\Phone81\Release\protobuf-net.pdb" target="Eneter.ProtoBuf.Serializer\v7.0.0\Phone81\protobuf-net.pdb" />
+        <file src="EneterProtoBufSerializer\bin\Phone81\Release\protobuf-net.xml" target="Eneter.ProtoBuf.Serializer\v7.0.0\Phone81\protobuf-net.xml" />
+        <file src="EneterProtoBufSerializer\bin\Silverlight5\Release\Eneter.ProtoBuf.Serializer.Silverlight.dll" target="Eneter.ProtoBuf.Serializer\v7.0.0\Silverlight5\Eneter.ProtoBuf.Serializer.Silverlight.dll" />
+        <file src="EneterProtoBufSerializer\bin\Silverlight5\Release\Eneter.ProtoBuf.Serializer.Silverlight.pdb" target="Eneter.ProtoBuf.Serializer\v7.0.0\Silverlight5\Eneter.ProtoBuf.Serializer.Silverlight.pdb" />
+        <file src="EneterProtoBufSerializer\bin\Silverlight5\Release\Eneter.ProtoBuf.Serializer.Silverlight.XML" target="Eneter.ProtoBuf.Serializer\v7.0.0\Silverlight5\Eneter.ProtoBuf.Serializer.Silverlight.XML" />
+        <file src="EneterProtoBufSerializer\bin\Net40\Release\protobuf-net.dll" target="Eneter.ProtoBuf.Serializer\v7.0.0\Silverlight5\protobuf-net.dll" />
+        <file src="EneterProtoBufSerializer\bin\Net40\Release\protobuf-net.pdb" target="Eneter.ProtoBuf.Serializer\v7.0.0\Silverlight5\protobuf-net.pdb" />
+        <file src="EneterProtoBufSerializer\bin\Net40\Release\protobuf-net.xml" target="Eneter.ProtoBuf.Serializer\v7.0.0\Silverlight5\protobuf-net.xml" />
+    </files>
+</package>
