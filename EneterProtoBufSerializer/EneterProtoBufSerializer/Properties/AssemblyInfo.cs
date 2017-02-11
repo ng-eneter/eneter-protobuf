@@ -27,8 +27,8 @@ using System.Resources;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("6.5.0.0")]
+[assembly: AssemblyVersion("7.0.1.0")]
 #if !COMPACT_FRAMEWORK
-[assembly: AssemblyFileVersion("6.5.0.0")]
+[assembly: AssemblyFileVersion("7.0.1.0")]
 #endif
 [assembly: NeutralResourcesLanguageAttribute("en")]

@@ -32,6 +32,12 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Net40\Release\Eneter.ProtoBuf.Serializer.XML</DocumentationFile>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>EneterProtoBufSerializer.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Eneter.Messaging.Framework">
       <HintPath>..\..\..\EneterMessaging700\EneterMessagingFramework\bin\Net40\Release\Eneter.Messaging.Framework.dll</HintPath>
@@ -48,7 +54,9 @@
     <Compile Include="ProtoBuf\EneterProtoBufDeclarations.cs" />
     <Compile Include="ProtoBuf\ProtoBufSerializer.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="EneterProtoBufSerializer.snk" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -47,6 +47,12 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>Bin\Silverlight5\Release\Eneter.ProtoBuf.Serializer.Silverlight.XML</DocumentationFile>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>EneterProtoBufSerializer.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Eneter.Messaging.Framework.Silverlight">
       <HintPath>..\..\..\EneterMessaging700\EneterMessagingFramework\bin\Silverlight5\Release\Eneter.Messaging.Framework.Silverlight.dll</HintPath>
@@ -68,6 +74,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ProtoBuf\ProtoBufSerializer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EneterProtoBufSerializer.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions>
