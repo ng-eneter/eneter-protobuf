@@ -6,5 +6,6 @@ This project implements the serializer for Eneter Messaging Framework; for both 
 * [Eneter Messaging Framework for Java platforms](https://github.com/ng-eneter/eneter-java)
 
 
-# Example
-[Protocol Buffers Serialization in .NET Communication](http://eneter.blogspot.com/2013/08/protobuf-serializer-for-net.html)
+Examples
+* [Protocol Buffers Serialization in .NET Communication](http://eneter.blogspot.com/2013/08/protobuf-serializer-for-net.html)
+* [Android: Fast Communication with .NET Using Protocol Buffers](https://www.codeproject.com/Articles/640249/Android-Fast-Communication-with-NET-Using-Protocol)
